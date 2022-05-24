@@ -32,7 +32,13 @@ public class ConnectFour implements BoardGame{
 					for(int i = r; i < r+4; i++) {
 						winningPositions[i] = new Position(r, c+1);
 					}
-				winner = board[r][c];
+					winner = board[r][c];
+					return true;
+			}
+		}
+		for(int r = 5; r>=0; r--) {
+			for (int c = 0; c <= 3; c++) {
+				if (board[r][c] != 0 && board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3] && board[r-3][c+3] == board[r-4][c+4])
 					return true;
 			}
 		}
